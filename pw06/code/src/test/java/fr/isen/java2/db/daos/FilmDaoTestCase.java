@@ -80,10 +80,9 @@ public class FilmDaoTestCase {
 	 
 	 @Test
 	 public void shouldAddFilm() throws Exception {
-			// WHEN
+		// WHEN
 		 filmDao.addFilm(new Film(4, "Title 4", LocalDate.parse("2015-11-14"), new Genre(3, "Western"), 200, "director 4", "summary of the fourth film"));
 		// THEN
-		//To use the bonus stage implementation the second connection needs to be used.
 		Connection connection = DataSourceFactory.getDataSource().getConnection();
 		Statement statement = connection.createStatement();
 		ResultSet resultSet = statement.executeQuery("SELECT * FROM film WHERE title='Title 4'");
